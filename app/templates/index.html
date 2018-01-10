@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body %}
+	{% if known %}
+		<h1>hello {{ name }}</h1>
+	{% endif %}
+	{% if current_user.is_authenticated %}
+		<h1>{{ current_user.username }}</h1>
+	{% else %}
+		<h1>hello stranger</h1>
+	{% endif %}
+
+	<form method='post'>
+		{{ form.csrf_token() }}
+		{{ form.label }}
+		{{ form.name }}
+		{{ form.submit }}
+	</form>
+{% endblock %}

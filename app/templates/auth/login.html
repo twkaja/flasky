@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% block title %}
+	登陆
+{%  endblock %}
+{% block body %}
+	<form method='post'>
+		{{ form.csrf_token() }}
+		{% for message in get_flashed_messages() %}
+			<h3>{{ message }}</h3>
+		{% endfor %}
+		{{ form.email.label }}
+		{{ form.email }}
+		<br />
+		{{ form.password.label }}
+		{{ form.password }}
+		<br />
+		{{ form.remember_me }}
+		{{ form.remember_me.label }}
+		<br />
+		{{ form.submit }}
+	</form>
+{%  endblock %}
